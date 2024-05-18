@@ -1,0 +1,12 @@
+html, body {
+    background-color: rgb(75, 75, 75);
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1,2em;
+    padding: 3em;
+}
+
+button {
+    padding: 1em;
+    border-radius: 15px;
+}
