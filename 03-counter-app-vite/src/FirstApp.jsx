@@ -1,20 +1,12 @@
 import PropTypes from 'prop-types';
 
-const newMesaje = 'Soy Jorge';
-
-const getResult = (a,b) =>  {
-    return a + b;
-};
-
-
-export const FirstApp = ({title, subTitle}) =>{
+export const FirstApp = ({title, subTitle, name}) =>{
     return (
         <>
-            <h1>{title}</h1>
+            <h1 data-testid="test-title">{title}</h1>
             <h2>{subTitle}</h2>
-            <h3>{newMesaje}</h3>
-            <span>Soy programador y tengo </span>
-            <span>{getResult(20, 10)} años</span>
+            <h2>{subTitle}</h2>
+            <h3>{name}</h3>
         </>
     );
 } 
@@ -26,6 +18,7 @@ FirstApp.PropTypes = {
 }
 
 FirstApp.defaultProps = {
+    name: 'Jorge Vela',
     title: 'No hay Titulos',
     subTitle: 'No hay subtitulo'
 }
