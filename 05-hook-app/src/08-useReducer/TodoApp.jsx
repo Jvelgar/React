@@ -1,5 +1,5 @@
-import React, { useEffect, useReducer } from "react";
-import { TodoList, todoReducer, TodoAdd } from "./index.js";
+import React from "react";
+import { TodoList, TodoAdd } from "./index.js";
 import { useTodo } from "./useTodo.js";
 
 export const TodoApp = () => {
