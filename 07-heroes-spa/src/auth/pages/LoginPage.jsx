@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { login } = useContext(AuthContext);
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -12,9 +14,14 @@ export const LoginPage = () => {
     setPassword(e.target.value);
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implement login logic here
+    login("Jorge Vela");
+    navigate("/", {
+      replace: true,
+    });
   };
 
   return (

@@ -1,7 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth";
 
 export const NavBar = () => {
+  const { user, logoutAction } = useContext(AuthContext);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    navigate("/login", {
+      replace: true,
+    });
+    logoutAction();
+  };
 
   return (
     <nav className="bg-gray-800">
@@ -56,19 +67,16 @@ export const NavBar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <Link
-                className={`text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium `}
-                to="/login"
-              >
-                Login
-              </Link>
+              <h5 className="text-white text-1xl font-bold ml-2 flex items-center">
+                {user?.name}
+              </h5>
 
-              <Link
+              <button
                 className={`text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium `}
-                to="/logout"
+                onClick={onLogout}
               >
                 Logout
-              </Link>
+              </button>
             </div>
           </div>
         </div>
